@@ -1,0 +1,13 @@
+#
+# oryol-sound
+#
+---
+imports:
+    oryol:
+        git:    https://github.com/floooh/oryol.git
+exports:
+    header-dirs:
+        - src
+    modules:
+        Sound:  src/Sound
+
