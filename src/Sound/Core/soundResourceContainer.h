@@ -5,7 +5,7 @@
     @ingroup _priv
     @brief resource container for Sound module
 */
-#include "Resource/Core/resourceContainerBase.h"
+#include "Resource/private/resourceContainerBase.h"
 #include "Sound/Core/SoundSetup.h"
 #include "Sound/Core/SoundEffectSetup.h"
 #include "Sound/Core/soundEffectPool.h"

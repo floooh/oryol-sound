@@ -5,7 +5,7 @@
     @ingroup _priv
     @brief resource pool for sound effects
 */
-#include "Resource/Core/ResourcePool.h"
+#include "Resource/ResourcePool.h"
 #include "Sound/Core/soundEffect.h"
 
 namespace Oryol {

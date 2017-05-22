@@ -14,7 +14,7 @@
 #include "Sound/Core/SoundSetup.h"
 #include "Sound/Core/soundMgr.h"
 #include "Sound/Core/soundResourceContainer.h"
-#include "Resource/Core/SetupAndData.h"
+#include "Resource/SetupAndData.h"
 
 namespace Oryol {
 

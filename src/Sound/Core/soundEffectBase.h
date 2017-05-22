@@ -5,7 +5,7 @@
     @ingroup _priv
     @brief base class for sound effect resource
 */
-#include "Resource/Core/resourceBase.h"
+#include "Resource/private/resourceBase.h"
 #include "Sound/Core/SoundEffectSetup.h"
 
 namespace Oryol {
