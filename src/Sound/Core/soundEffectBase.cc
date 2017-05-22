@@ -11,7 +11,7 @@ namespace _priv {
 void
 soundEffectBase::Clear() {
     // FIXME
-    resourceBase::Clear();
+    ResourceBase::Clear();
 }
 
 } // namespace _priv

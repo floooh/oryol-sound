@@ -14,7 +14,7 @@ soundResourceContainer::setup(const SoundSetup& setup) {
 
     this->effectFactory.setup(setup);
     this->effectPool.Setup(0, setup.SoundEffectPoolSize);
-    resourceContainerBase::setup(setup.ResourceLabelStackCapacity, setup.ResourceRegistryCapacity);
+    ResourceContainerBase::setup(setup.ResourceLabelStackCapacity, setup.ResourceRegistryCapacity);
 }
 
 //------------------------------------------------------------------------------
@@ -22,7 +22,7 @@ void
 soundResourceContainer::discard() {
     o_assert_dbg(this->isValid());
 
-    resourceContainerBase::discard();
+    ResourceContainerBase::discard();
     this->effectPool.Discard();
     this->effectFactory.discard();
 }

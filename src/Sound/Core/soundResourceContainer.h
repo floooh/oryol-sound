@@ -5,7 +5,7 @@
     @ingroup _priv
     @brief resource container for Sound module
 */
-#include "Resource/private/resourceContainerBase.h"
+#include "Resource/ResourceContainerBase.h"
 #include "Sound/Core/SoundSetup.h"
 #include "Sound/Core/SoundEffectSetup.h"
 #include "Sound/Core/soundEffectPool.h"
@@ -14,7 +14,7 @@
 namespace Oryol {
 namespace _priv {
 
-class soundResourceContainer : public resourceContainerBase {
+class soundResourceContainer : public ResourceContainerBase {
 public:
     /// setup the resource container
     void setup(const SoundSetup& setup);

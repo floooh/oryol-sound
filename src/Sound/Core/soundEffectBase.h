@@ -5,13 +5,13 @@
     @ingroup _priv
     @brief base class for sound effect resource
 */
-#include "Resource/private/resourceBase.h"
+#include "Resource/ResourceBase.h"
 #include "Sound/Core/SoundEffectSetup.h"
 
 namespace Oryol {
 namespace _priv {
 
-class soundEffectBase : public resourceBase<SoundEffectSetup> {
+class soundEffectBase : public ResourceBase<SoundEffectSetup> {
 public:
     /// clear the object
     void Clear();
