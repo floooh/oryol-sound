@@ -39,7 +39,8 @@ soundResourceContainer::Create(const SoundEffectSetup& setup) {
     else {
         resId = this->effectPool.AllocId();
         this->registry.Add(setup.Locator, resId, this->peekLabel());
-        soundEffect& res = this->effectPool.Assign(resId, setup, ResourceState::Setup);
+        soundEffect& res = this->effectPool.Assign(resId, ResourceState::Setup);
+        res.Setup = setup;
         const ResourceState::Code newState = this->effectFactory.setupResource(res);
         o_assert((newState == ResourceState::Valid) || (newState == ResourceState::Failed));
         this->effectPool.UpdateState(resId, newState);
@@ -61,7 +62,8 @@ soundResourceContainer::Create(const SoundEffectSetup& setup, const void* data, 
     else {
         resId = this->effectPool.AllocId();
         this->registry.Add(setup.Locator, resId, this->peekLabel());
-        soundEffect& res = this->effectPool.Assign(resId, setup, ResourceState::Setup);
+        soundEffect& res = this->effectPool.Assign(resId, ResourceState::Setup);
+        res.Setup = setup;
         const ResourceState::Code newState = this->effectFactory.setupResource(res, data, size);
         o_assert((newState == ResourceState::Valid) || (newState == ResourceState::Failed));
         this->effectPool.UpdateState(resId, newState);

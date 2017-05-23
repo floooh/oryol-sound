@@ -10,6 +10,6 @@
 
 namespace Oryol {
 namespace _priv {
-class soundEffectPool : public ResourcePool<soundEffect, SoundEffectSetup> {};
+class soundEffectPool : public ResourcePool<soundEffect> {};
 } // namespace _pric
 } // namespace Oryol

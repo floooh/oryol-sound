@@ -11,8 +11,10 @@
 namespace Oryol {
 namespace _priv {
 
-class soundEffectBase : public ResourceBase<SoundEffectSetup> {
+class soundEffectBase : public ResourceBase {
 public:
+    /// the original setup object
+    SoundEffectSetup Setup;
     /// clear the object
     void Clear();
 };

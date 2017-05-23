@@ -10,8 +10,7 @@ namespace _priv {
 //------------------------------------------------------------------------------
 void
 soundEffectBase::Clear() {
-    // FIXME
-    ResourceBase::Clear();
+    this->Setup = SoundEffectSetup();
 }
 
 } // namespace _priv
