@@ -10,19 +10,19 @@ namespace _priv {
 //------------------------------------------------------------------------------
 void
 soundResourceContainer::setup(const SoundSetup& setup) {
-    o_assert_dbg(!this->isValid());
+    o_assert_dbg(!this->IsValid());
 
     this->effectFactory.setup(setup);
     this->effectPool.Setup(0, setup.SoundEffectPoolSize);
-    ResourceContainerBase::setup(setup.ResourceLabelStackCapacity, setup.ResourceRegistryCapacity);
+    ResourceContainerBase::Setup(setup.ResourceLabelStackCapacity, setup.ResourceRegistryCapacity);
 }
 
 //------------------------------------------------------------------------------
 void
 soundResourceContainer::discard() {
-    o_assert_dbg(this->isValid());
+    o_assert_dbg(this->IsValid());
 
-    ResourceContainerBase::discard();
+    ResourceContainerBase::Discard();
     this->effectPool.Discard();
     this->effectFactory.discard();
 }
@@ -30,7 +30,7 @@ soundResourceContainer::discard() {
 //------------------------------------------------------------------------------
 Id
 soundResourceContainer::Create(const SoundEffectSetup& setup) {
-    o_assert_dbg(this->isValid());
+    o_assert_dbg(this->IsValid());
 
     Id resId = this->registry.Lookup(setup.Locator);
     if (resId.IsValid()) {
@@ -38,7 +38,7 @@ soundResourceContainer::Create(const SoundEffectSetup& setup) {
     }
     else {
         resId = this->effectPool.AllocId();
-        this->registry.Add(setup.Locator, resId, this->peekLabel());
+        this->registry.Add(setup.Locator, resId, this->PeekLabel());
         soundEffect& res = this->effectPool.Assign(resId, ResourceState::Setup);
         res.Setup = setup;
         const ResourceState::Code newState = this->effectFactory.setupResource(res);
@@ -51,7 +51,7 @@ soundResourceContainer::Create(const SoundEffectSetup& setup) {
 //------------------------------------------------------------------------------
 Id
 soundResourceContainer::Create(const SoundEffectSetup& setup, const void* data, int size) {
-    o_assert_dbg(this->isValid());
+    o_assert_dbg(this->IsValid());
     o_assert_dbg(nullptr != data);
     o_assert_dbg(size > 0);
 
@@ -61,7 +61,7 @@ soundResourceContainer::Create(const SoundEffectSetup& setup, const void* data, 
     }
     else {
         resId = this->effectPool.AllocId();
-        this->registry.Add(setup.Locator, resId, this->peekLabel());
+        this->registry.Add(setup.Locator, resId, this->PeekLabel());
         soundEffect& res = this->effectPool.Assign(resId, ResourceState::Setup);
         res.Setup = setup;
         const ResourceState::Code newState = this->effectFactory.setupResource(res, data, size);
@@ -74,7 +74,7 @@ soundResourceContainer::Create(const SoundEffectSetup& setup, const void* data, 
 //------------------------------------------------------------------------------
 void
 soundResourceContainer::Destroy(ResourceLabel label) {
-    o_assert_dbg(this->isValid());
+    o_assert_dbg(this->IsValid());
 
     Array<Id> ids = this->registry.Remove(label);
     for (const Id& id : ids) {
@@ -91,7 +91,7 @@ soundResourceContainer::Destroy(ResourceLabel label) {
 //------------------------------------------------------------------------------
 soundEffect*
 soundResourceContainer::lookupSoundEffect(const Id& resId) {
-    o_assert_dbg(this->isValid());
+    o_assert_dbg(this->IsValid());
     return this->effectPool.Lookup(resId);
 }
 
