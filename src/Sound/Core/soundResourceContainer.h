@@ -5,16 +5,17 @@
     @ingroup _priv
     @brief resource container for Sound module
 */
-#include "Resource/ResourceContainerBase.h"
 #include "Sound/Core/SoundSetup.h"
 #include "Sound/Core/SoundEffectSetup.h"
 #include "Sound/Core/soundEffectPool.h"
 #include "Sound/Core/soundEffectFactory.h"
+#include "Resource/ResourceRegistry.h"
+#include "Resource/ResourceLabelStack.h"
 
 namespace Oryol {
 namespace _priv {
 
-class soundResourceContainer : public ResourceContainerBase {
+class soundResourceContainer {
 public:
     /// setup the resource container
     void setup(const SoundSetup& setup);
@@ -31,6 +32,8 @@ public:
     /// lookup soundEffect, return 0 if not exists or valid
     soundEffect* lookupSoundEffect(const Id& resId);
 
+    ResourceRegistry registry;
+    ResourceLabelStack labelStack;
     _priv::soundEffectPool effectPool;
     _priv::soundEffectFactory effectFactory;
 };
