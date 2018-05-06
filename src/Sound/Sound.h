@@ -9,12 +9,11 @@
     @brief audio module for generated sound effects and short samples
 */
 #include "Core/Types.h"
-#include "Core/Containers/Buffer.h"
+#include "Core/Containers/MemoryBuffer.h"
 #include "Sound/Core/soundResourceContainer.h"
 #include "Sound/Core/SoundSetup.h"
 #include "Sound/Core/soundMgr.h"
 #include "Sound/Core/soundResourceContainer.h"
-#include "Resource/SetupAndData.h"
 
 namespace Oryol {
 
@@ -40,10 +39,8 @@ public:
     static ResourceLabel PopResourceLabel();
     /// create a sound effect resource
     static Id CreateResource(const SoundEffectSetup& setup);
-    /// create a resource object with data in stream object
-    static Id CreateResource(const SetupAndData<SoundEffectSetup>& setupAndData);
     /// create a sound effect resource with data in stream
-    static Id CreateResource(const SoundEffectSetup& setup, const Buffer& data);
+    static Id CreateResource(const SoundEffectSetup& setup, const MemoryBuffer& data);
     /// create a sound effect resource with raw data
     static Id CreateResource(const SoundEffectSetup& setup, const void* data, int size);
     /// lookup a resource id by Locator

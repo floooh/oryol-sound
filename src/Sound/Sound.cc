@@ -48,17 +48,10 @@ Sound::CreateResource(const SoundEffectSetup& setup) {
 
 //------------------------------------------------------------------------------
 Id
-Sound::CreateResource(const SoundEffectSetup& setup, const Buffer& data) {
+Sound::CreateResource(const SoundEffectSetup& setup, const MemoryBuffer& data) {
     o_assert_dbg(IsValid());
     o_assert_dbg(!data.Empty());
     return state->resourceContainer.Create(setup, data.Data(), data.Size());
-}
-
-//------------------------------------------------------------------------------
-Id
-Sound::CreateResource(const SetupAndData<SoundEffectSetup>& setupAndData) {
-    o_assert_dbg(IsValid());
-    return CreateResource(setupAndData.Setup, setupAndData.Data);
 }
 
 //------------------------------------------------------------------------------
